@@ -7,7 +7,7 @@
 
     <style>
         body {
-            background-color: #fff;
+            background-color: #ffffff; /* fundo branco */
             line-height: 1.6;
         }
 
@@ -26,10 +26,11 @@
         .card {
             padding: 10px 25px;
             border-radius: 10px;
-            background: ##fafafc;
-            color: #080808;
+            background: #ffffff; /* fundo branco */
+            color: #000000; /* letras pretas */
             display: inline-block;
-            box-shadow: 2px 2px 1px 0px #000203;
+            box-shadow: 2px 2px 5px 0px #000000; /* sombra preta */
+            border: 1px solid #000000; /* borda preta para destacar */
         }
 
         .card:hover {
@@ -42,6 +43,7 @@
             font-family: 'Roboto', sans-serif;
             font-weight: bold;
             font-size: 1.2em;
+            color: #000000; /* letras pretas */
         }
 
         .date {
@@ -49,12 +51,14 @@
             font-family: 'Roboto', sans-serif;
             font-size: 1.2em;
             margin-bottom: 10px;
+            color: #000000; /* letras pretas */
         }
 
         .greet {
             font-family: 'Roboto', sans-serif;
             font-size: 1.2em;
             margin-bottom: 5px;
+            color: #000000; /* letras pretas */
         }
     </style>
 </head>
@@ -73,15 +77,20 @@
     </div>
 
     <script>
+        function capitalizeFirstLetter(text) {
+            return text.charAt(0).toUpperCase() + text.slice(1);
+        }
+
         function dateTime() {
             var today = new Date();
 
             // Dia da semana em português
             var optionsWeekday = { weekday: 'long' };
             var diaSemana = today.toLocaleDateString('pt-BR', optionsWeekday);
+            diaSemana = capitalizeFirstLetter(diaSemana); // primeira letra maiúscula
 
             // Data completa em português (dia, mês, ano)
-            var optionsDate = { year: 'numeric', month: short', day: 'numeric' };
+            var optionsDate = { year: 'numeric', month: 'long', day: 'numeric' };
             var dataFormatada = today.toLocaleDateString('pt-BR', optionsDate);
 
             // Hora formatada em português (24h)
@@ -96,11 +105,11 @@
             var hrs = today.getHours();
             var greet;
             if (hrs < 12)
-                greet = '<i>Bom dia, Camila!</i>';
+                greet = '<i>Bom dia</i>';
             else if (hrs >= 12 && hrs <= 17)
-                greet = '<i>Boa tarde, Camila!</i>';
+                greet = '<i>Boa tarde</i>';
             else
-                greet = '<i>Boa noite, Camila!</i>';
+                greet = '<i>Boa noite</i>';
 
             document.getElementById('greet').innerHTML = greet;
 
