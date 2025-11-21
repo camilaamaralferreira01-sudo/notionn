@@ -9,6 +9,7 @@
         body {
             background-color: #ffffff; /* fundo branco */
             line-height: 1.6;
+            font-family: 'Dancing Script', cursive; /* fonte manuscrita elegante */
         }
 
         .full-table {
@@ -24,13 +25,13 @@
         }
 
         .card {
-            padding: 10px 25px;
+            padding: 15px 30px;
             border-radius: 10px;
             background: #ffffff; /* fundo branco */
             color: #000000; /* letras pretas */
             display: inline-block;
-            box-shadow: 2px 2px 5px 0px #000000; /* sombra preta */
-            border: 1px solid #000000; /* borda preta para destacar */
+            box-shadow: 2px 2px 8px 0px #000000; /* sombra preta */
+            border: 1px solid #000000; /* borda preta */
         }
 
         .card:hover {
@@ -40,30 +41,28 @@
 
         .clock {
             display: inline-block;
-            font-family: 'Roboto', sans-serif;
-            font-weight: bold;
-            font-size: 1.2em;
-            color: #000000; /* letras pretas */
+            font-weight: bold; /* hora em negrito */
+            font-size: 1.6em;
+            color: #000000;
         }
 
         .date {
             display: block;
-            font-family: 'Roboto', sans-serif;
-            font-size: 1.2em;
+            font-size: 1.4em;
             margin-bottom: 10px;
-            color: #000000; /* letras pretas */
+            color: #000000;
         }
 
         .greet {
-            font-family: 'Roboto', sans-serif;
-            font-size: 1.2em;
+            font-size: 1.4em;
             margin-bottom: 5px;
-            color: #000000; /* letras pretas */
+            color: #000000;
         }
     </style>
 </head>
 <body>
-    <link href="https://fonts.googleapis.com/css?family=Lobster|Roboto:400,700" rel="stylesheet">
+    <!-- Fonte Dancing Script -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&display=swap" rel="stylesheet">
 
     <div class="full-table">
         <div class="table-cell">
@@ -87,9 +86,9 @@
             // Dia da semana em português
             var optionsWeekday = { weekday: 'long' };
             var diaSemana = today.toLocaleDateString('pt-BR', optionsWeekday);
-            diaSemana = capitalizeFirstLetter(diaSemana); // primeira letra maiúscula
+            diaSemana = capitalizeFirstLetter(diaSemana);
 
-            // Data completa em português (dia, mês, ano)
+            // Data completa em português
             var optionsDate = { year: 'numeric', month: 'long', day: 'numeric' };
             var dataFormatada = today.toLocaleDateString('pt-BR', optionsDate);
 
