@@ -92,15 +92,15 @@
             document.getElementById('daymonth').innerHTML = dataFormatada;
             document.getElementById('clock').innerHTML = horaFormatada;
 
-            // Saudação
+            // Saudação em itálico
             var hrs = today.getHours();
             var greet;
             if (hrs < 12)
-                greet = 'Bom dia';
+                greet = '<i>Bom dia</i>';
             else if (hrs >= 12 && hrs <= 17)
-                greet = 'Boa tarde';
+                greet = '<i>Boa tarde</i>';
             else
-                greet = 'Boa noite';
+                greet = '<i>Boa noite</i>';
 
             document.getElementById('greet').innerHTML = greet;
 
