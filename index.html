@@ -9,7 +9,7 @@
         body {
             background-color: #ffffff; /* fundo branco */
             line-height: 1.6;
-            font-family: 'Poppins', sans-serif; /* fonte padrão moderna */
+            font-family: 'Poppins', sans-serif; /* fonte padrão para data e hora */
         }
 
         .full-table {
@@ -25,7 +25,7 @@
         }
 
         .card {
-            padding: 15px 30px;
+            padding: 20px 35px;
             border-radius: 10px;
             background: #ffffff; /* fundo branco */
             color: #000000; /* letras pretas */
@@ -49,23 +49,23 @@
 
         .date {
             display: block;
-            font-size: 1.4em;
+            font-size: 1.3em;
             margin-bottom: 10px;
             color: #000000;
-            font-family: 'Dancing Script', cursive; /* fonte artística para data */
+            font-family: 'Poppins', sans-serif; /* fonte padrão para data */
         }
 
         .greet {
-            font-size: 1.4em;
-            margin-bottom: 5px;
+            font-size: 1.8em; /* saudação maior */
+            margin-bottom: 10px;
             color: #000000;
-            font-family: 'Dancing Script', cursive; /* fonte artística para saudação */
+            font-family: 'Montserrat', sans-serif; /* fonte moderna para saudação */
         }
     </style>
 </head>
 <body>
-    <!-- Fontes Dancing Script e Poppins -->
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Fontes Montserrat e Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
     <div class="full-table">
         <div class="table-cell">
@@ -103,7 +103,7 @@
             document.getElementById('daymonth').innerHTML = dataFormatada;
             document.getElementById('clock').innerHTML = horaFormatada;
 
-            // Saudação em itálico
+            // Saudação em itálico + Montserrat
             var hrs = today.getHours();
             var greet;
             if (hrs < 12)
