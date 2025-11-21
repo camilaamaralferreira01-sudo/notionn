@@ -11,10 +11,6 @@
             line-height: 1.6;
         }
 
-        h1 {
-            margin-top: 0;
-        }
-
         .full-table {
             display: table;
             height: 100%;
@@ -28,7 +24,7 @@
         }
 
         .card {
-            padding: 10px 25px 10px 25px;
+            padding: 10px 25px;
             border-radius: 10px;
             background: #4f7372;
             color: #fff;
@@ -50,14 +46,12 @@
 
         .date {
             display: block;
-            min-width: 250px;
             font-family: 'Roboto', sans-serif;
             font-size: 1.2em;
             margin-bottom: 10px;
         }
 
         .greet {
-            min-width: 162px;
             font-family: 'Roboto', sans-serif;
             font-size: 1.2em;
             margin-bottom: 5px;
@@ -71,7 +65,8 @@
         <div class="table-cell">
             <div class="card">
                 <div class="greet" id="greet"></div>
-                <div class="date" id="date"></div>
+                <div class="date" id="weekday"></div>
+                <div class="date" id="daymonth"></div>
                 <div class="clock" id="clock"></div>
             </div>
         </div>
@@ -81,15 +76,20 @@
         function dateTime() {
             var today = new Date();
 
-            // Dia da semana + data em português
-            var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-            var dataFormatada = today.toLocaleDateString('pt-BR', options);
+            // Dia da semana em português
+            var optionsWeekday = { weekday: 'long' };
+            var diaSemana = today.toLocaleDateString('pt-BR', optionsWeekday);
+
+            // Data completa em português (dia, mês, ano)
+            var optionsDate = { year: 'numeric', month: 'long', day: 'numeric' };
+            var dataFormatada = today.toLocaleDateString('pt-BR', optionsDate);
 
             // Hora formatada em português (24h)
             var horaFormatada = today.toLocaleTimeString('pt-BR');
 
-            // Exibe data e hora juntos
-            document.getElementById('date').innerHTML = dataFormatada;
+            // Exibe em linhas diferentes
+            document.getElementById('weekday').innerHTML = diaSemana;
+            document.getElementById('daymonth').innerHTML = dataFormatada;
             document.getElementById('clock').innerHTML = horaFormatada;
 
             // Saudação
