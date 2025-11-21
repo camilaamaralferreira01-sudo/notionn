@@ -108,14 +108,14 @@
             // Saudação personalizada com nome + emoji (sem itálico no emoji)
             var hrs = today.getHours();
             var greet;
-            var nome = "Camila"; // <-- coloque aqui o seu nome
+            var nome = "Camila!"; // <-- coloque aqui o seu nome
 
             if (hrs < 12)
-                greet = '<i>Bom dia, ' + nome + '</i> <span> ☀️ </span>';
+                greet = '<i>Bom dia, ' + nome + '</i> <span style="font-style:normal;">☀️</span>';
             else if (hrs >= 12 && hrs <= 17)
-                greet = '<i>Boa tarde, ' + nome + '</i> <span> 🌤️ </span>';
+                greet = '<i>Boa tarde, ' + nome + '</i> <span style="font-style:normal;">🌤️</span>';
             else
-                greet = '<i>Boa noite, ' + nome + '</i> <span> 🌙 </span>';
+                greet = '<i>Boa noite, ' + nome + '</i> <span style="font-style:normal;">🌙</span>';
 
             document.getElementById('greet').innerHTML = greet;
 
