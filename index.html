@@ -25,12 +25,12 @@
         }
 
         .card {
-            padding: 20px 35px;
+            padding: 15px 25px;
             border-radius: 10px;
             background: #ffffff; /* fundo branco */
             color: #000000; /* letras pretas */
             display: inline-block;
-            box-shadow: 2px 2px 8px 0px #000000; /* sombra preta */
+            box-shadow: 2px 2px 6px 0px #000000; /* sombra preta */
             border: 1px solid #000000; /* borda preta */
         }
 
@@ -42,24 +42,26 @@
         .clock {
             display: inline-block;
             font-weight: bold; /* hora em negrito */
-            font-size: 1.6em;
+            font-size: 1.2em; /* menor tamanho */
             color: #000000;
             font-family: 'Poppins', sans-serif; /* fonte limpa para hora */
         }
 
         .date {
             display: block;
-            font-size: 1.3em;
-            margin-bottom: 10px;
+            font-size: 1em; /* menor tamanho */
+            margin-bottom: 8px;
             color: #000000;
             font-family: 'Poppins', sans-serif; /* fonte padrão para data */
         }
 
         .greet {
-            font-size: 1.8em; /* saudação maior */
-            margin-bottom: 10px;
+            font-size: 1.2em; /* menor tamanho */
+            margin-bottom: 8px;
             color: #000000;
             font-family: 'Montserrat', sans-serif; /* fonte moderna para saudação */
+            font-style: italic; /* itálico */
+            transform: skewX(-10deg); /* inclinação extra para "mais itálico" */
         }
     </style>
 </head>
@@ -107,11 +109,11 @@
             var hrs = today.getHours();
             var greet;
             if (hrs < 12)
-                greet = '<i>Bom dia, Camila</i>';
+                greet = 'Bom dia';
             else if (hrs >= 12 && hrs <= 17)
-                greet = '<i>Boa tarde, Camila</i>';
+                greet = 'Boa tarde';
             else
-                greet = '<i>Boa noite, Camila</i>';
+                greet = 'Boa noite';
 
             document.getElementById('greet').innerHTML = greet;
 
