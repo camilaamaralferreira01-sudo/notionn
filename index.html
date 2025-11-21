@@ -26,10 +26,10 @@
         .card {
             padding: 10px 25px;
             border-radius: 10px;
-            background: #4f7372;
-            color: #fff;
+            background: ##fafafc;
+            color: #080808;
             display: inline-block;
-            box-shadow: 2px 2px 1px 0px #295C7B;
+            box-shadow: 2px 2px 1px 0px #000203;
         }
 
         .card:hover {
@@ -81,7 +81,7 @@
             var diaSemana = today.toLocaleDateString('pt-BR', optionsWeekday);
 
             // Data completa em português (dia, mês, ano)
-            var optionsDate = { year: 'numeric', month: 'long', day: 'numeric' };
+            var optionsDate = { year: 'numeric', month: short', day: 'numeric' };
             var dataFormatada = today.toLocaleDateString('pt-BR', optionsDate);
 
             // Hora formatada em português (24h)
@@ -96,11 +96,11 @@
             var hrs = today.getHours();
             var greet;
             if (hrs < 12)
-                greet = '<i>Bom dia</i>';
+                greet = '<i>Bom dia, Camila!</i>';
             else if (hrs >= 12 && hrs <= 17)
-                greet = '<i>Boa tarde</i>';
+                greet = '<i>Boa tarde, Camila!</i>';
             else
-                greet = '<i>Boa noite</i>';
+                greet = '<i>Boa noite, Camila!</i>';
 
             document.getElementById('greet').innerHTML = greet;
 
