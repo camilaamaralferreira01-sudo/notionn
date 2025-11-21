@@ -105,15 +105,17 @@
             document.getElementById('daymonth').innerHTML = dataFormatada;
             document.getElementById('clock').innerHTML = horaFormatada;
 
-            // Saudação em itálico + Montserrat
+            // Saudação personalizada com nome + emoji (sem itálico no emoji)
             var hrs = today.getHours();
             var greet;
+            var nome = "SeuNome"; // <-- coloque aqui o seu nome
+
             if (hrs < 12)
-                greet = 'Bom dia, Camila ☕';
+                greet = '<i>Bom dia, ' + Camila + '</i> ☀️';
             else if (hrs >= 12 && hrs <= 17)
-                greet = 'Boa tarde, Camila 🌞';
+                greet = '<i>Boa tarde, ' +    Camila + '</i> 🌇';
             else
-                greet = 'Boa noite, Camila 🛌';
+                greet = '<i>Boa noite, ' + Camila + '</i> 🌙';
 
             document.getElementById('greet').innerHTML = greet;
 
