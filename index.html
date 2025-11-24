@@ -10,6 +10,7 @@
             background-color: transparent; /* fundo transparente */
             line-height: 1.6;
             font-family: 'Poppins', sans-serif;
+            color: #000000; /* padrão claro */
         }
 
         .full-table {
@@ -28,10 +29,11 @@
             padding: 15px 25px;
             border-radius: 10px;
             background: transparent; /* fundo transparente */
-            color: #000000; /* padrão claro */
+            color: inherit; /* herda da body */
             display: inline-block;
-            box-shadow: 2px 2px 6px 0px #000000;
+            box-shadow: 2px 2px 8px rgba(0,0,0,0.6); /* sombra suave no claro */
             border: 1px solid #000000;
+            transition: all 0.3s ease; /* transição suave */
         }
 
         .card:hover {
@@ -43,7 +45,7 @@
             display: inline-block;
             font-weight: bold;
             font-size: 1.2em;
-            color: inherit; /* herda da card */
+            color: inherit;
             font-family: 'Poppins', sans-serif;
         }
 
@@ -51,14 +53,14 @@
             display: block;
             font-size: 1em;
             margin-bottom: 8px;
-            color: inherit; /* herda da card */
+            color: inherit;
             font-family: 'Poppins', sans-serif;
         }
 
         .greet {
             font-size: 1.2em;
             margin-bottom: 8px;
-            color: inherit; /* herda da card */
+            color: inherit;
             font-family: 'Montserrat', sans-serif;
             font-style: italic;
             transform: skewX(-10deg);
@@ -66,10 +68,13 @@
 
         /* Ajustes automáticos para modo escuro */
         @media (prefers-color-scheme: dark) {
+            body {
+                color: #ffffff; /* fonte branca */
+            }
             .card {
-                color: #ffffff;
+                color: inherit;
                 border: 1px solid #ffffff;
-                box-shadow: 2px 2px 6px 0px #ffffff;
+                box-shadow: 2px 2px 12px rgba(255,255,255,0.6); /* sombra clara no escuro */
             }
         }
     </style>
@@ -115,11 +120,11 @@
             var nome = "Camila!";
 
             if (hrs < 12)
-                greet = '<i>Bom dia, ' + nome + '</i> <span style="font-style:normal;">☀️</span>';
+                greet = '<i>Bom dia, ' + nome + '</i> <span style="font-style:normal; color:#FFD700;">☀️</span>';
             else if (hrs >= 12 && hrs <= 17)
-                greet = '<i>Boa tarde, ' + nome + '</i> <span style="font-style:normal;">🌤️</span>';
+                greet = '<i>Boa tarde, ' + nome + '</i> <span style="font-style:normal; color:#FFA500;">🌤️</span>';
             else
-                greet = '<i>Boa noite, ' + nome + '</i> <span style="font-style:normal;">🌙</span>';
+                greet = '<i>Boa noite, ' + nome + '</i> <span style="font-style:normal; color:#FFFFFF;">🌙</span>';
 
             document.getElementById('greet').innerHTML = greet;
 
