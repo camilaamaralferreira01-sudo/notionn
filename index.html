@@ -7,9 +7,9 @@
 
     <style>
         body {
-            background-color: #ffffff; /* fundo branco */
+            background-color: transparent; /* fundo transparente */
             line-height: 1.6;
-            font-family: 'Poppins', sans-serif; /* fonte padrão para data e hora */
+            font-family: 'Poppins', sans-serif;
         }
 
         .full-table {
@@ -27,11 +27,11 @@
         .card {
             padding: 15px 25px;
             border-radius: 10px;
-            background: #ffffff; /* fundo branco */
-            color: #000000; /* letras pretas */
+            background: transparent; /* fundo transparente */
+            color: #000000; /* padrão claro */
             display: inline-block;
-            box-shadow: 2px 2px 6px 0px #000000; /* sombra preta */
-            border: 1px solid #000000; /* borda preta */
+            box-shadow: 2px 2px 6px 0px #000000;
+            border: 1px solid #000000;
         }
 
         .card:hover {
@@ -41,27 +41,36 @@
 
         .clock {
             display: inline-block;
-            font-weight: bold; /* hora em negrito */
-            font-size: 1.2em; /* menor tamanho */
-            color: #000000;
-            font-family: 'Poppins', sans-serif; /* fonte limpa para hora */
+            font-weight: bold;
+            font-size: 1.2em;
+            color: inherit; /* herda da card */
+            font-family: 'Poppins', sans-serif;
         }
 
         .date {
             display: block;
-            font-size: 1em; /* menor tamanho */
+            font-size: 1em;
             margin-bottom: 8px;
-            color: #000000;
-            font-family: 'Poppins', sans-serif; /* fonte padrão para data */
+            color: inherit; /* herda da card */
+            font-family: 'Poppins', sans-serif;
         }
 
         .greet {
-            font-size: 1.2em; /* menor tamanho */
+            font-size: 1.2em;
             margin-bottom: 8px;
-            color: #000000;
-            font-family: 'Montserrat', sans-serif; /* fonte moderna para saudação */
-            font-style: italic; /* itálico */
-            transform: skewX(-10deg); /* inclinação extra para "mais itálico" */
+            color: inherit; /* herda da card */
+            font-family: 'Montserrat', sans-serif;
+            font-style: italic;
+            transform: skewX(-10deg);
+        }
+
+        /* Ajustes automáticos para modo escuro */
+        @media (prefers-color-scheme: dark) {
+            .card {
+                color: #ffffff;
+                border: 1px solid #ffffff;
+                box-shadow: 2px 2px 6px 0px #ffffff;
+            }
         }
     </style>
 </head>
@@ -88,27 +97,22 @@
         function dateTime() {
             var today = new Date();
 
-            // Dia da semana em português
             var optionsWeekday = { weekday: 'long' };
             var diaSemana = today.toLocaleDateString('pt-BR', optionsWeekday);
             diaSemana = capitalizeFirstLetter(diaSemana);
 
-            // Data completa em português
             var optionsDate = { year: 'numeric', month: 'long', day: 'numeric' };
             var dataFormatada = today.toLocaleDateString('pt-BR', optionsDate);
 
-            // Hora formatada em português (24h)
             var horaFormatada = today.toLocaleTimeString('pt-BR');
 
-            // Exibe em linhas diferentes
             document.getElementById('weekday').innerHTML = diaSemana;
             document.getElementById('daymonth').innerHTML = dataFormatada;
             document.getElementById('clock').innerHTML = horaFormatada;
 
-            // Saudação personalizada com nome + emoji (sem itálico no emoji)
             var hrs = today.getHours();
             var greet;
-            var nome = "Camila!"; // <-- coloque aqui o seu nome
+            var nome = "Camila!";
 
             if (hrs < 12)
                 greet = '<i>Bom dia, ' + nome + '</i> <span style="font-style:normal;">☀️</span>';
