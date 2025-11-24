@@ -10,7 +10,6 @@
             background-color: transparent; /* fundo transparente */
             line-height: 1.6;
             font-family: 'Poppins', sans-serif;
-            color: #000000; /* padrão claro */
         }
 
         .full-table {
@@ -28,12 +27,11 @@
         .card {
             padding: 15px 25px;
             border-radius: 10px;
-            background: transparent; /* fundo transparente */
-            color: inherit; /* herda da body */
+            background: #ffffff; /* bloco sempre branco */
+            color: #000000;      /* fonte sempre preta */
             display: inline-block;
-            box-shadow: 2px 2px 8px rgba(0,0,0,0.6); /* sombra suave no claro */
-            border: 1px solid #000000;
-            transition: all 0.3s ease; /* transição suave */
+            box-shadow: 2px 2px 6px 0px #000000; /* sombra preta */
+            border: 1px solid #000000;           /* borda preta */
         }
 
         .card:hover {
@@ -45,7 +43,7 @@
             display: inline-block;
             font-weight: bold;
             font-size: 1.2em;
-            color: inherit;
+            color: #000000; /* sempre preto */
             font-family: 'Poppins', sans-serif;
         }
 
@@ -53,29 +51,17 @@
             display: block;
             font-size: 1em;
             margin-bottom: 8px;
-            color: inherit;
+            color: #000000; /* sempre preto */
             font-family: 'Poppins', sans-serif;
         }
 
         .greet {
             font-size: 1.2em;
             margin-bottom: 8px;
-            color: inherit;
+            color: #000000; /* sempre preto */
             font-family: 'Montserrat', sans-serif;
             font-style: italic;
             transform: skewX(-10deg);
-        }
-
-        /* Ajustes automáticos para modo escuro */
-        @media (prefers-color-scheme: dark) {
-            body {
-                color: #ffffff; /* fonte branca */
-            }
-            .card {
-                color: inherit;
-                border: 1px solid #ffffff;
-                box-shadow: 2px 2px 12px rgba(255,255,255,0.6); /* sombra clara no escuro */
-            }
         }
     </style>
 </head>
@@ -99,39 +85,4 @@
             return text.charAt(0).toUpperCase() + text.slice(1);
         }
 
-        function dateTime() {
-            var today = new Date();
-
-            var optionsWeekday = { weekday: 'long' };
-            var diaSemana = today.toLocaleDateString('pt-BR', optionsWeekday);
-            diaSemana = capitalizeFirstLetter(diaSemana);
-
-            var optionsDate = { year: 'numeric', month: 'long', day: 'numeric' };
-            var dataFormatada = today.toLocaleDateString('pt-BR', optionsDate);
-
-            var horaFormatada = today.toLocaleTimeString('pt-BR');
-
-            document.getElementById('weekday').innerHTML = diaSemana;
-            document.getElementById('daymonth').innerHTML = dataFormatada;
-            document.getElementById('clock').innerHTML = horaFormatada;
-
-            var hrs = today.getHours();
-            var greet;
-            var nome = "Camila!";
-
-            if (hrs < 12)
-                greet = '<i>Bom dia, ' + nome + '</i> <span style="font-style:normal; color:#FFD700;">☀️</span>';
-            else if (hrs >= 12 && hrs <= 17)
-                greet = '<i>Boa tarde, ' + nome + '</i> <span style="font-style:normal; color:#FFA500;">🌤️</span>';
-            else
-                greet = '<i>Boa noite, ' + nome + '</i> <span style="font-style:normal; color:#FFFFFF;">🌙</span>';
-
-            document.getElementById('greet').innerHTML = greet;
-
-            setTimeout(dateTime, 1000);
-        }
-
-        dateTime();
-    </script>
-</body>
-</html>
+        function
