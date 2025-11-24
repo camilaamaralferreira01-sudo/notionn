@@ -1,88 +1,127 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Relógio em Português</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relógio em Português</title>
+  <style>
+    body {
+      background-color: transparent; /* fundo transparente para seguir o tema do navegador */
+      line-height: 1.6;
+      font-family: 'Poppins', sans-serif; /* fonte padrão para data e hora */
+    }
 
-    <style>
-        body {
-            background-color: transparent; /* fundo transparente */
-            line-height: 1.6;
-            font-family: 'Poppins', sans-serif;
-        }
+    .full-table {
+      display: table;
+      height: 100%;
+      width: 100%;
+    }
 
-        .full-table {
-            display: table;
-            height: 100%;
-            width: 100%;
-        }
+    .table-cell {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+    }
 
-        .table-cell {
-            display: table-cell;
-            vertical-align: middle;
-            text-align: center;
-        }
+    .card {
+      padding: 15px 25px;
+      border-radius: 10px;
+      background: #ffffff; /* fundo branco fixo do bloco */
+      color: #000000; /* letras pretas */
+      display: inline-block;
+      box-shadow: 2px 2px 6px 0px #000000; /* sombra preta */
+      border: 1px solid #000000; /* borda preta */
+    }
 
-        .card {
-            padding: 15px 25px;
-            border-radius: 10px;
-            background: #ffffff; /* bloco sempre branco */
-            color: #000000;      /* fonte sempre preta */
-            display: inline-block;
-            box-shadow: 2px 2px 6px 0px #000000; /* sombra preta */
-            border: 1px solid #000000;           /* borda preta */
-        }
+    .card:hover {
+      margin-top: 2px;
+      box-shadow: none;
+    }
 
-        .card:hover {
-            margin-top: 2px;
-            box-shadow: none;
-        }
+    .clock {
+      display: inline-block;
+      font-weight: bold; /* hora em negrito */
+      font-size: 1.2em; /* menor tamanho */
+      color: #000000;
+      font-family: 'Poppins', sans-serif; /* fonte limpa para hora */
+    }
 
-        .clock {
-            display: inline-block;
-            font-weight: bold;
-            font-size: 1.2em;
-            color: #000000; /* sempre preto */
-            font-family: 'Poppins', sans-serif;
-        }
+    .date {
+      display: block;
+      font-size: 1em; /* menor tamanho */
+      margin-bottom: 8px;
+      color: #000000;
+      font-family: 'Poppins', sans-serif; /* fonte padrão para data */
+    }
 
-        .date {
-            display: block;
-            font-size: 1em;
-            margin-bottom: 8px;
-            color: #000000; /* sempre preto */
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .greet {
-            font-size: 1.2em;
-            margin-bottom: 8px;
-            color: #000000; /* sempre preto */
-            font-family: 'Montserrat', sans-serif;
-            font-style: italic;
-            transform: skewX(-10deg);
-        }
-    </style>
+    .greet {
+      font-size: 1.2em; /* menor tamanho */
+      margin-bottom: 8px;
+      color: #000000;
+      font-family: 'Montserrat', sans-serif; /* fonte moderna para saudação */
+      font-style: italic; /* itálico */
+      transform: skewX(-10deg); /* inclinação extra para "mais itálico" */
+    }
+  </style>
 </head>
 <body>
-    <!-- Fontes Montserrat e Poppins -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Fontes Montserrat e Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
-    <div class="full-table">
-        <div class="table-cell">
-            <div class="card">
-                <div class="greet" id="greet"></div>
-                <div class="date" id="weekday"></div>
-                <div class="date" id="daymonth"></div>
-                <div class="clock" id="clock"></div>
-            </div>
-        </div>
+  <div class="full-table">
+    <div class="table-cell">
+      <div class="card">
+        <div class="greet" id="greet"></div>
+        <div class="date" id="weekday"></div>
+        <div class="date" id="daymonth"></div>
+        <div class="clock" id="clock"></div>
+      </div>
     </div>
+  </div>
 
-    <script>
-        function capitalizeFirstLetter(text) {
-            return text.charAt(0).toUpperCase() + text.slice(1);
-        }
+  <script>
+    function capitalizeFirstLetter(text) {
+      return text.charAt(0).toUpperCase() + text.slice(1);
+    }
 
-        function
+    function dateTime() {
+      var today = new Date();
+
+      // Dia da semana em português
+      var optionsWeekday = { weekday: 'long' };
+      var diaSemana = today.toLocaleDateString('pt-BR', optionsWeekday);
+      diaSemana = capitalizeFirstLetter(diaSemana);
+
+      // Data completa em português
+      var optionsDate = { year: 'numeric', month: 'long', day: 'numeric' };
+      var dataFormatada = today.toLocaleDateString('pt-BR', optionsDate);
+
+      // Hora formatada em português (24h)
+      var horaFormatada = today.toLocaleTimeString('pt-BR');
+
+      // Exibe em linhas diferentes
+      document.getElementById('weekday').innerHTML = diaSemana;
+      document.getElementById('daymonth').innerHTML = dataFormatada;
+      document.getElementById('clock').innerHTML = horaFormatada;
+
+      // Saudação personalizada com nome + emoji (sem itálico no emoji)
+      var hrs = today.getHours();
+      var greet;
+      var nome = "Camila!"; // <-- coloque aqui o seu nome
+
+      if (hrs < 12)
+        greet = '<i>Bom dia, ' + nome + '</i> <span style="font-style:normal;">☀️</span>';
+      else if (hrs >= 12 && hrs <= 17)
+        greet = '<i>Boa tarde, ' + nome + '</i> <span style="font-style:normal;">🌤️</span>';
+      else
+        greet = '<i>Boa noite, ' + nome + '</i> <span style="font-style:normal;">🌙</span>';
+
+      document.getElementById('greet').innerHTML = greet;
+
+      setTimeout(dateTime, 1000);
+    }
+
+    dateTime();
+  </script>
+</body>
+</html>
